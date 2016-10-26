@@ -1,7 +1,7 @@
 {
   "name": "ember-redux-load-middlewares",
   "version": "0.0.0",
-  "description": "The default blueprint for ember-cli addons.",
+  "description": "loads enhancers, reducers, and middlewares for ember-redux",
   "directories": {
     "doc": "doc",
     "test": "tests"
@@ -11,11 +11,11 @@
     "start": "ember server",
     "test": "ember try:each"
   },
-  "repository": "",
+  "repository": "https://github.com/foxnewsnetwork/ember-redux-load-middlewares",
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "Thomas Chen",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.4.5",
@@ -41,7 +41,10 @@
     "loader.js": "^4.0.10"
   },
   "keywords": [
-    "ember-addon"
+    "ember-addon",
+    "enhancer",
+    "reducer",
+    "middleware"
   ],
   "dependencies": {
     "ember-cli-babel": "^5.1.7"
