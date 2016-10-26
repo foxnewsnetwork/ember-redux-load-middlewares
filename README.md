@@ -1,7 +1,15 @@
 # Ember-redux-load-middlewares
 
-This README outlines the details of collaborating on this Ember addon.
+(Work in Progress!!)
+ember-load-initializers for ember-redux, loads all the files in your `enhancers`, `middleware`, and `reducers` folders for inclusion with ember-redux's `redux` service
 
+comes with blueprints to generate enhancers, middlewares, and reducers
+
+```bash
+ember generate redux-enchancer my-enchaner
+ember generate redux-middleware my-middleware
+ember generate redux-reducer my-reducer
+```
 ## Installation
 
 * `git clone <repository-url>` this repository
