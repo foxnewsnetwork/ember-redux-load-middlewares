@@ -1,4 +1,4 @@
-import Ember from 'ember'
+import Ember from 'ember';
 /**
 * Stolen from rwjblue (as usual)
 * https://github.com/ember-cli/ember-load-initializers/blob/master/addon/index.js
@@ -20,7 +20,7 @@ const loadSomething = (type) => (prefix) => {
 
 const matchCriteria = (matches) => matches && matches.length === 2;
 const matches = (regexp) => (moduleName) => matchCriteria(regexp.exec(moduleName));
-const toModule = (moduleName) => assertPresence(namingRequire(moduleName));
+const toModule = (moduleName) => assertGood(namingRequire(moduleName));
 
 function namingRequire(moduleName) {
   const module = require(moduleName, null, null, true) || { isBad: true };
@@ -28,7 +28,11 @@ function namingRequire(moduleName) {
   return module;
 }
 function assertGood({moduleName, isBad}) {
-  return !isBad || throw new Error(`${moduleName} must export a reducer`);
+  if (isBad) {
+    throw(new Error(`${moduleName} must export a reducer`));
+  } else {
+    return true;
+  }
 }
 function standardizeName(module) {
   const { moduleName, name } = module;
