@@ -2,5 +2,7 @@
 'use strict';
 
 module.exports = {
-  name: 'ember-redux-load-middlewares'
+  name: 'ember-redux-load-middlewares',
+
+  
 };

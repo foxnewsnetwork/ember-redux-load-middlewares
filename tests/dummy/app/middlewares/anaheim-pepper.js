@@ -3,6 +3,6 @@ export function middleware(/*{getState, dispatch }*/) {
 }
 
 export default {
-  name: 'grapejuice',
+  name: 'anaheim-pepper',
   middleware
 };

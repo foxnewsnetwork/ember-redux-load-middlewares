@@ -19,7 +19,8 @@ Here are what I need to do before this is ready
 - [x] write blueprints for generating reducers
 - [x] write blueprints for generating middlewares
 - [x] write an acceptance test to ensure stuff works
-- [ ] write a RFC on ember-redux about using this addon
+- [x] write a RFC on ember-redux about using this addon (in progress here https://github.com/toranb/ember-redux/issues/34#issuecomment-257153057)
+- [ ] implement sorting with before and after
 
 ## Installation
 

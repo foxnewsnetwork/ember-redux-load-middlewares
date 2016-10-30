@@ -3,6 +3,6 @@ export function enhancer(storeCreator) {
 }
 
 export default {
-  name: 'peanutoil',
+  name: 'chocolate-cake',
   enhancer
 };
