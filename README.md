@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/foxnewsnetwork/ember-redux-load-middlewares.svg?branch=master)](https://travis-ci.org/foxnewsnetwork/ember-redux-load-middlewares)
+
 # Ember-redux-load-middlewares
 
 (Work in Progress!!)
