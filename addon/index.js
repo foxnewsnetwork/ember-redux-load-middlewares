@@ -4,26 +4,26 @@ import Ember from 'ember';
 * https://github.com/ember-cli/ember-load-initializers/blob/master/addon/index.js
 */
 
-const { isBlank } = Ember;
+const { isBlank, isPresent } = Ember;
 const getKeys = (Object.keys || Ember.keys);
+
+const matchCriteria = isPresent;
+const matches = (regexp) => (moduleName) => matchCriteria(regexp.exec(moduleName));
 
 const loadSomething = (type) => (prefix) => {
   const regex = new RegExp(`^${prefix}\/${type}\/`);
-  const moduleNames = getKeys(requirejs._eak_seen);
+  const moduleNames = getKeys(window.requirejs._eak_seen);
 
   return moduleNames
     .filter(matches(regex))
     .map(toModule)
     .filter(assertGood)
     .map(standardizeName);
-}
+};
 
-const matchCriteria = (matches) => matches && matches.length === 2;
-const matches = (regexp) => (moduleName) => matchCriteria(regexp.exec(moduleName));
-const toModule = (moduleName) => assertGood(namingRequire(moduleName));
 
-function namingRequire(moduleName) {
-  const module = require(moduleName, null, null, true) || { isBad: true };
+function toModule(moduleName) {
+  const module = window.require(moduleName, null, null, true) || { isBad: true };
   module.moduleName = moduleName;
   return module;
 }

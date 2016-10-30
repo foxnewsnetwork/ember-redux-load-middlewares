@@ -17,7 +17,7 @@ describe('Acceptance: Load', function() {
     application = startApp();
     visit('/');
     andThen(function() {
-      reducers = loadReducers();
+      reducers = loadReducers('dummy');
       done();
     });
   });
@@ -34,5 +34,5 @@ describe('Acceptance: Load', function() {
     const reducer = reducers[0];
     expect(reducer).to.have.property('name', 'applesauce');
     expect(reducer).to.respondTo('reducer');
-  })
+  });
 });
