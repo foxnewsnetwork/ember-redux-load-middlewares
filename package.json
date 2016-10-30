@@ -1,6 +1,6 @@
 {
   "name": "ember-redux-load-middlewares",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "loads enhancers, reducers, and middlewares for ember-redux",
   "directories": {
     "doc": "doc",
