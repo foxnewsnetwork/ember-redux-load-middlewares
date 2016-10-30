@@ -13,10 +13,10 @@ ember generate redux-reducer my-reducer
 ## Todos
 Here are what I need to do before this is ready
 
-- [ ] write all the blueprints for generating enhancers
+- [x] write all the blueprints for generating enhancers
 - [x] write blueprints for generating reducers
-- [ ] write blueprints fo generating middlewares
-- [ ] write an acceptance test to ensure stuff works
+- [x] write blueprints for generating middlewares
+- [x] write an acceptance test to ensure stuff works
 - [ ] write a RFC on ember-redux about using this addon
 
 ## Installation
