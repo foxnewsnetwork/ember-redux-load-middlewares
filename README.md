@@ -12,6 +12,35 @@ ember generate redux-enchancer my-enchaner
 ember generate redux-middleware my-middleware
 ember generate redux-reducer my-reducer
 ```
+
+## Usage
+Usage like so:
+
+```javascript
+import {
+  loadReducers,
+  loadMiddlewares,
+  loadEnhancers,
+  runReducers,
+  runEnhancers,
+  runMiddlewares
+} from 'ember-redux-load-middlewares';
+
+const myReducers = loadReducers('my-app'); // name of your app
+runReducers(myReducers, (name, reducer) => { /* Whatever you have to do*/ })
+```
+Note that `myReducers` in the above example is an array that contains data that looks like:
+```javascript
+{
+  name: String,
+  before?: String | [String],
+  after?: String | [String],
+  reducer: Reducer
+}
+```
+
+the `runReducers` method, when given an array of reducers like the above, sorts them then performs the given callback on them in the proper DAG order.
+
 ## Todos
 Here are what I need to do before this is ready
 
@@ -19,7 +48,8 @@ Here are what I need to do before this is ready
 - [x] write blueprints for generating reducers
 - [x] write blueprints for generating middlewares
 - [x] write an acceptance test to ensure stuff works
-- [ ] write a RFC on ember-redux about using this addon
+- [x] write a RFC on ember-redux about using this addon (in progress here https://github.com/toranb/ember-redux/issues/34#issuecomment-257153057)
+- [x] implement sorting with before and after
 
 ## Installation
 

@@ -3,6 +3,6 @@ export function reducer(state, action) {
 }
 
 export default {
-  name: 'applesauce',
+  name: 'apple-sauce',
   reducer
 };
