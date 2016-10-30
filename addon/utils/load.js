@@ -4,14 +4,16 @@ import Ember from 'ember';
 * https://github.com/ember-cli/ember-load-initializers/blob/master/addon/index.js
 */
 
-const { isBlank, isPresent } = Ember;
+const { isBlank, isPresent, getWithDefault } = Ember;
 const getKeys = (Object.keys || Ember.keys);
 
 const matchCriteria = isPresent;
 const matches = (regexp) => (moduleName) => matchCriteria(regexp.exec(moduleName));
 
 function toModule(moduleName) {
-  const module = window.require(moduleName, null, null, true) || { isBad: true };
+  const moduleContainer = window.require(moduleName, null, null, true) || {};
+  const module = getWithDefault(moduleContainer, 'default', { isBad: true });
+
   module.moduleName = moduleName;
   return module;
 }

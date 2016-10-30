@@ -14,7 +14,7 @@ function addEdgesOf(type) {
     const { name, before, after } = dagNode;
     const runF = dagNode[type];
 
-    graph.addEdges(name, runF, before, after);
+    graph.add(name, runF, before, after);
     return graph;
   };
 }
@@ -25,6 +25,6 @@ export default function run(type) {
   return (dagNodes, callback) => {
     const graph = dagNodes.reduce(addEdges, new DAG());
 
-    graph.topsort(vertex => callback(vertex.name, vertex.value));
+    graph.topsort((name, f) => callback(name, f));
   };
 }

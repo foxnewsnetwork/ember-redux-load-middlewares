@@ -12,9 +12,7 @@ import {
   loadReducers,
   loadMiddlewares,
   loadEnhancers,
-  runReducers,
-  runMiddlewares,
-  runEnhancers
+  runReducers
 } from 'ember-redux-load-middlewares';
 
 describe('Acceptance: Load Run', function() {
@@ -67,27 +65,17 @@ describe('Acceptance: Load Run', function() {
 
   describe('running', function() {
     let sortedReducers = [];
-    let sortedEnhancers = [];
-    let sortedMiddlewares = [];
     before(function() {
-      runReducers(reducers, (name) => sortedReducers.push(name));
-      runEnhancers(enhancers, (name) => sortedEnhancers.push(name));
-      runMiddlewares(middlewares, (name) => sortedMiddlewares.push(name));
+      let index = 0;
+      runReducers(reducers, (name) => {
+        sortedReducers[index] = name;
+        index++;
+      });
     });
 
     it('should have the reducers run in the proper order', function() {
-      expect(sortedReducers)
-        .to.deep.eq(['strawberry-jam', 'apple-sauce', 'gravy-boat', 'hummus', 'olive-brine', 'peanut-butter']);
-    });
-
-    it('should have the enhancers run in the proper order', function() {
-      expect(sortedEnhancers)
-        .to.deep.eq(['chocolate-cake', 'ice-cream', 'jello-shot']);
-    });
-
-    it('should have the middlewares run in the proper order', function() {
-      expect(sortedMiddlewares)
-        .to.deep.eq(['anaheim-pepper', 'brussel-sprouts', 'cauliflower', 'chinese-cabbage']);
+      expect(sortedReducers.join('#'))
+        .to.eq('olive-brine#hummus#strawberry-jam#gravy-boat#apple-sauce#peanut-butter');
     });
   });
 });
